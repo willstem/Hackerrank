@@ -17,12 +17,12 @@ class Graph:
     def find_all_distances(self,start):
         visited = [False for _ in xrange(self.n)]
         distances = [-1 for _ in xrange(self.n)]
-        queue=deque()
-        queue.append((start,0))
+        queue = deque()
+        queue.append((start, 0))
         while queue:
             (node, level) = queue.popleft()
-            distances[node]=level*6
-            level+=1
+            distances[node] = level*6
+            level += 1
             if self.edges.has_key(node):
                 for nextNode in self.edges[node]:
                     if not visited[nextNode]:
@@ -32,11 +32,11 @@ class Graph:
         print " ".join(map(str,distances))
 
 t = input()
-for i in range(t):
+for i in xrange(t):
     n,m = [int(x) for x in raw_input().split()]
     graph = Graph(n)
     for i in xrange(m):
         x,y = [int(x) for x in raw_input().split()]
-        graph.connect(x-1,y-1)
+        graph.connect(x-1, y-1)
     s = input()
     graph.find_all_distances(s-1)
