@@ -32,7 +32,7 @@ class Graph:
         print " ".join(map(str,distances))
 
 t = input()
-for i in xrange(t):
+for i in range(t):
     n,m = [int(x) for x in raw_input().split()]
     graph = Graph(n)
     for i in xrange(m):
